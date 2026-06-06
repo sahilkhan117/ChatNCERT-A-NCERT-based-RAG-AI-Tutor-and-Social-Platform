@@ -1,187 +1,301 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, MouseEvent } from "react";
 import {
   Flame,
-  Bot,
-  Calendar,
   Award,
-  MessageSquare,
+  BookOpen,
   ArrowRight,
+  Sparkles,
   TrendingUp,
-  GraduationCap,
+  Brain,
+  Calculator,
+  Compass,
+  ArrowRightCircle,
+  HelpCircle,
+  MessageSquare,
+  Search,
 } from "lucide-react";
 
-export default function StudentDashboard() {
-  const [studyStreak] = useState(5); // 5 days streak
+interface TiltStyle {
+  transform: string;
+}
 
-  // Mock student stats
-  const stats = {
-    averageQuizScore: 84,
-    completedLessons: 12,
-    rank: "Chem Alchemist",
-    level: 4,
-    xpProgress: 65, // 65% of level 4 completed
+export default function StudentDashboard() {
+  const [studyStreak] = useState(7);
+  const [hoverStyles, setHoverStyles] = useState<{ [key: string]: TiltStyle }>({});
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>, cardId: string) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -3; // max 3 degrees
+    const rotateY = ((x - centerX) / centerX) * 3;
+
+    setHoverStyles((prev) => ({
+      ...prev,
+      [cardId]: {
+        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`,
+      },
+    }));
+  };
+
+  const handleMouseLeave = (cardId: string) => {
+    setHoverStyles((prev) => ({
+      ...prev,
+      [cardId]: {
+        transform: "",
+      },
+    }));
   };
 
   return (
-    <div className="space-y-8 max-w-6xl mx-auto">
-      {/* Welcome Banner */}
-      <div className="flex flex-col md:flex-row items-center justify-between p-6 rounded-2xl bg-card border border-border shadow-sm gap-4">
+    <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in duration-500">
+      {/* Header Panel */}
+      <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-2 border-b border-border">
         <div>
-          <h2 className="text-3xl font-extrabold tracking-tight">
-            Welcome back to the <span className="text-teal-accent">Study Hall</span>!
-          </h2>
-          <p className="text-muted-foreground text-sm mt-1">
-            Track your progress, chat with AI, and master your NCERT chapters.
+          <h1 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
+            Welcome back, Arjun! 👋
+          </h1>
+          <p className="text-muted-foreground text-sm lg:text-base mt-1.5 font-medium">
+            Let's crush today's syllabus goals and elevate your rank.
           </p>
         </div>
+        <Link
+          href="/dashboard/rag"
+          className="flex items-center gap-2 bg-card hover:bg-slate-gray border border-border shadow-sm px-4 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
+        >
+          <Search size={14} className="text-muted-foreground" />
+          <span>Search NCERT...</span>
+        </Link>
+      </header>
 
-        {/* Streak Indicator */}
-        <div className="flex items-center gap-3 bg-saffron-light border border-saffron/20 px-5 py-3 rounded-2xl">
-          <Flame className="text-saffron w-6 h-6 animate-pulse" />
-          <div>
-            <h4 className="font-extrabold text-saffron-dark text-lg leading-tight">
-              {studyStreak} Day Streak!
-            </h4>
-            <p className="text-[10px] text-saffron-dark/80 font-medium">
-              Keep it up to unlock double XP!
+      {/* Bento Grid Container */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        
+        {/* Streak Widget (1x1) */}
+        <div
+          onMouseMove={(e) => handleMouseMove(e, "streak")}
+          onMouseLeave={() => handleMouseLeave("streak")}
+          style={hoverStyles["streak"]}
+          className="bg-card rounded-2xl border border-border shadow-sm p-6 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
+        >
+          <div className="absolute -right-4 -top-4 size-24 bg-saffron/10 rounded-full blur-xl group-hover:bg-saffron/20 transition-colors"></div>
+          <div className="flex items-center justify-between z-10">
+            <h3 className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider">
+              Daily Streak
+            </h3>
+            <Flame className="text-saffron w-7 h-7 fill-saffron animate-pulse" />
+          </div>
+          <div className="z-10 mt-6">
+            <p className="text-4xl font-black text-foreground">
+              {studyStreak} <span className="text-sm text-muted-foreground font-semibold">Days</span>
+            </p>
+            <p className="text-[11px] text-saffron font-bold mt-1">
+              On fire! Keep it up.
             </p>
           </div>
         </div>
-      </div>
 
-      {/* Gamified Bento Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Card 1: Mascot & Level Tracking (Col Span 2) */}
-        <div className="bento-card md:col-span-2 p-6 rounded-2xl bg-card border border-border flex flex-col justify-between">
-          <div className="flex gap-4">
-            <div className="w-16 h-16 rounded-2xl bg-teal-light text-3xl flex items-center justify-center border border-teal-accent/20 animate-bounce-slow text-teal-accent">
-              🦉
-            </div>
-            <div className="flex-1">
-              <span className="text-xs font-bold text-teal-accent bg-teal-light px-2.5 py-1 rounded-full uppercase tracking-wider">
-                Mascot: Vidya
-              </span>
-              <p className="text-foreground font-semibold text-base mt-2.5 leading-relaxed">
-                "You're only <span className="text-saffron">350 XP</span> away from reaching Level 5!
-                Try taking the **Class 10 Chemical Reactions Quiz** today to claim your bonus."
-              </p>
-            </div>
+        {/* Mascot Greeting (2x2) */}
+        <div
+          onMouseMove={(e) => handleMouseMove(e, "mascot")}
+          onMouseLeave={() => handleMouseLeave("mascot")}
+          style={hoverStyles["mascot"]}
+          className="md:col-span-2 md:row-span-2 bg-gradient-to-br from-teal-light/20 to-teal-light/5 rounded-2xl shadow-sm p-8 flex flex-col sm:flex-row items-center justify-between border border-teal-accent/25 relative overflow-hidden transition-all duration-300 ease-out cursor-pointer group"
+        >
+          <div className="flex-1 pr-0 sm:pr-6 z-10 flex flex-col h-full justify-center text-center sm:text-left">
+            <span className="inline-block px-3 py-1 bg-white dark:bg-card border border-teal-accent/10 text-teal-accent text-[10px] font-bold rounded-full mb-4 w-fit mx-auto sm:mx-0 shadow-sm">
+              Level 12 Scholar
+            </span>
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-foreground mb-3 leading-tight">
+              Ready to tackle Physics Chapter 4?
+            </h2>
+            <p className="text-muted-foreground text-xs lg:text-sm mb-6 max-w-sm">
+              You left off at <span className="font-bold text-foreground">"Moving Charges and Magnetism"</span>. The AI tutor is prepped with your past questions.
+            </p>
+            <Link
+              href="/dashboard/rag"
+              className="bg-teal-accent text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md hover:bg-teal-dark hover:-translate-y-0.5 transition-all w-fit mx-auto sm:mx-0 flex items-center gap-2"
+            >
+              <span>Resume Lesson</span>
+              <ArrowRight size={14} />
+            </Link>
           </div>
+          <div
+            className="w-40 h-40 bg-contain bg-no-repeat bg-center z-10 mt-6 sm:mt-0 shrink-0 transform group-hover:scale-105 transition-transform duration-500"
+            style={{
+              backgroundImage: `url("https://lh3.googleusercontent.com/aida/AP1WRLtg0wle-v_eMFcSO0B7WLX5wYWHK4_xxJHuM8BbwPCL55Srf1CAsYdbPMWk1Ah-mUQxP5l_myFOlwdVOMtluYRhKizqr-lxwQkiAHOVDCasU2WSrqpzxOg7qphggMerhks7eG-ALM7BklL4_cXBpvUNZLcCtQRb7wP-RgsxKXPq9S74rRciKezZVbAkIt3TnHRdyWCnOHez8qg_7P6Ie7keiR7ttRDmwQ9I1xkeG0fsfWNHGRdGF2uzQrt6")`,
+            }}
+          ></div>
+          {/* Decorative shapes */}
+          <div className="absolute -bottom-10 -right-10 size-64 bg-teal-accent/5 rounded-full blur-3xl"></div>
+        </div>
 
-          {/* Level Progress Bar */}
-          <div className="mt-6 pt-4 border-t border-border">
-            <div className="flex justify-between text-xs font-bold mb-2">
-              <span className="flex items-center gap-1.5">
-                <GraduationCap size={16} className="text-teal-accent" />
-                Level {stats.level} ({stats.rank})
-              </span>
-              <span>{stats.xpProgress}% to Level {stats.level + 1}</span>
-            </div>
-            <div className="w-full h-3 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full bg-saffron rounded-full transition-all duration-500"
-                style={{ width: `${stats.xpProgress}%` }}
-              />
+        {/* Quick Jump: Physics (1x1) */}
+        <div
+          onMouseMove={(e) => handleMouseMove(e, "physics")}
+          onMouseLeave={() => handleMouseLeave("physics")}
+          style={hoverStyles["physics"]}
+          className="bg-card rounded-2xl border border-border shadow-sm p-5 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
+        >
+          <div className="absolute inset-0 bg-radial from-teal-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="z-10 bg-teal-light/30 text-teal-accent w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+            <Compass size={20} />
+          </div>
+          <div className="z-10 mt-6">
+            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mb-0.5">
+              CH 4 • Science
+            </p>
+            <h3 className="font-extrabold text-foreground text-lg leading-tight">
+              Physics
+            </h3>
+            <div className="w-full bg-slate-gray border border-border h-2 rounded-full mt-3 overflow-hidden">
+              <div className="bg-teal-accent h-full w-[65%] rounded-full" />
             </div>
           </div>
         </div>
 
-        {/* Card 2: AI Q&A Quick launcher (Col Span 1) */}
-        <div className="bento-card p-6 rounded-2xl bg-teal-accent text-white flex flex-col justify-between hover:bg-teal-dark transition-colors">
-          <div>
-            <Bot className="w-8 h-8 text-teal-light" />
-            <h3 className="font-extrabold text-xl mt-3">NCERT AI Assistant</h3>
-            <p className="text-teal-light/80 text-xs mt-1.5 leading-relaxed">
-              Ask questions directly from your textbooks. Generates answers complete with page-specific citations.
+        {/* Quick Jump: Math (1x1) */}
+        <div
+          onMouseMove={(e) => handleMouseMove(e, "math")}
+          onMouseLeave={() => handleMouseLeave("math")}
+          style={hoverStyles["math"]}
+          className="bg-card rounded-2xl border border-border shadow-sm p-5 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
+        >
+          <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-bl from-saffron/10 to-transparent rounded-bl-full opacity-50 group-hover:scale-110 transition-transform"></div>
+          <div className="z-10 bg-saffron-light border border-saffron/10 text-saffron-dark w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
+            <Calculator size={20} />
+          </div>
+          <div className="z-10 mt-6">
+            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-wider mb-0.5">
+              CH 6 • Maths
+            </p>
+            <h3 className="font-extrabold text-foreground text-lg leading-tight">
+              Mathematics
+            </h3>
+            <div className="w-full bg-slate-gray border border-border h-2 rounded-full mt-3 overflow-hidden">
+              <div className="bg-saffron h-full w-[30%] rounded-full" />
+            </div>
+          </div>
+        </div>
+
+        {/* Daily Quiz CTA (2x1) */}
+        <div
+          onMouseMove={(e) => handleMouseMove(e, "daily-quiz")}
+          onMouseLeave={() => handleMouseLeave("daily-quiz")}
+          style={hoverStyles["daily-quiz"]}
+          className="md:col-span-2 bg-ink text-white rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-center justify-between border border-border/10 relative overflow-hidden transition-all duration-300 ease-out cursor-pointer group"
+        >
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+          <div className="z-10 text-center sm:text-left mb-4 sm:mb-0">
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+              <Flame size={16} className="text-saffron fill-saffron animate-bounce" />
+              <span className="text-saffron text-[10px] font-extrabold uppercase tracking-wider">
+                Time Sensitive
+              </span>
+            </div>
+            <h3 className="text-xl font-bold font-display text-white tracking-tight">
+              Take your Daily NCERT Quiz
+            </h3>
+            <p className="text-gray-400 text-xs mt-1">
+              Earn 50 XP and protect your streak today.
             </p>
           </div>
           <Link
-            href="/dashboard/rag"
-            className="mt-6 w-full py-2.5 rounded-xl bg-white text-teal-accent text-center font-bold text-sm hover:scale-[1.02] transition-transform shadow-md flex items-center justify-center gap-2"
+            href="/dashboard/quizzes"
+            className="z-10 bg-saffron hover:bg-saffron-dark text-foreground font-black text-xs px-5 py-3 rounded-xl shadow-lg transition-transform duration-200 hover:scale-105 shrink-0"
           >
-            Launch Chatbot <ArrowRight size={14} />
+            Start Quiz
           </Link>
         </div>
 
-        {/* Card 3: Upcoming Assignments (Col Span 1) */}
-        <div className="bento-card p-6 rounded-2xl bg-card border border-border flex flex-col justify-between">
-          <div>
-            <Calendar className="w-6 h-6 text-saffron" />
-            <h3 className="font-extrabold text-lg mt-3">Next Assignment</h3>
-            <div className="mt-4 p-3 rounded-xl bg-saffron-light border border-saffron/10">
-              <h4 className="font-bold text-saffron-dark text-sm">Carbon & Its Compounds</h4>
-              <p className="text-[10px] text-saffron-dark/80 mt-1">Due in 2 days (June 8, 2026)</p>
-            </div>
+        {/* Recent Activity (2x2) */}
+        <div className="md:col-span-2 md:row-span-2 bg-card rounded-2xl border border-border shadow-sm p-6 flex flex-col">
+          <div className="flex items-center justify-between mb-5">
+            <h3 className="font-extrabold text-foreground text-base flex items-center gap-2">
+              <Brain size={18} className="text-teal-accent" /> Recent AI Queries
+            </h3>
+            <Link
+              href="/dashboard/rag"
+              className="text-teal-accent text-xs font-bold hover:underline"
+            >
+              View Chat
+            </Link>
           </div>
-          <Link
-            href="/dashboard/assignments"
-            className="mt-6 text-center text-xs font-bold text-saffron hover:underline flex items-center justify-center gap-1.5"
-          >
-            Submit Assignment <ArrowRight size={12} />
-          </Link>
-        </div>
-
-        {/* Card 4: Practice Quizzes Tracker (Col Span 2) */}
-        <div className="bento-card md:col-span-2 p-6 rounded-2xl bg-card border border-border flex flex-col justify-between">
-          <div>
-            <div className="flex justify-between items-center">
-              <h3 className="font-extrabold text-lg flex items-center gap-2">
-                <Award className="w-5 h-5 text-teal-accent" /> Recent Quiz Scores
-              </h3>
-              <Link href="/dashboard/quizzes" className="text-xs font-bold text-teal-accent hover:underline">
-                View All
-              </Link>
-            </div>
-
-            {/* Score Stats Grid */}
-            <div className="grid grid-cols-2 gap-4 mt-6">
-              <div className="p-4 rounded-xl bg-slate-gray border border-border text-center flex flex-col justify-center items-center">
-                <span className="text-2xl font-black text-teal-accent flex items-center gap-1">
-                  <TrendingUp size={18} className="text-teal-accent" />
-                  {stats.averageQuizScore}%
-                </span>
-                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mt-1">
-                  Average Accuracy
-                </p>
+          
+          <div className="flex-grow flex flex-col gap-4 overflow-y-auto pr-1">
+            {/* Activity Item 1 */}
+            <Link
+              href="/dashboard/rag"
+              className="flex gap-4 items-start p-3 rounded-xl hover:bg-slate-gray/50 border border-transparent hover:border-border transition-all cursor-pointer"
+            >
+              <div className="size-9 rounded-xl bg-teal-light/20 border border-teal-accent/15 flex items-center justify-center text-teal-accent shrink-0 mt-0.5">
+                <HelpCircle size={16} />
               </div>
-              <div className="p-4 rounded-xl bg-slate-gray border border-border text-center flex flex-col justify-center items-center">
-                <span className="text-2xl font-black text-saffron">{stats.completedLessons}</span>
-                <p className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider mt-1">
-                  Lessons Mastered
+              <div>
+                <p className="text-xs font-bold text-foreground mb-1 leading-snug">
+                  Explain Faraday's Law of Induction simply.
                 </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-[9px] bg-slate-gray border border-border text-muted-foreground px-2 py-0.5 rounded-full font-bold">
+                    Physics
+                  </span>
+                  <span className="text-[9px] text-muted-foreground">2 hours ago</span>
+                </div>
               </div>
-            </div>
-          </div>
+            </Link>
 
-          <div className="mt-4 p-3 rounded-xl bg-teal-light/20 border border-teal-accent/10 flex items-center justify-between text-xs">
-            <span className="font-medium text-teal-dark">🔥 Daily practice complete! (+50 XP claimed)</span>
-            <span className="font-bold text-teal-accent">Claimed</span>
+            {/* Activity Item 2 */}
+            <Link
+              href="/dashboard/rag"
+              className="flex gap-4 items-start p-3 rounded-xl hover:bg-slate-gray/50 border border-transparent hover:border-border transition-all cursor-pointer"
+            >
+              <div className="size-9 rounded-xl bg-saffron-light/20 border border-saffron/15 flex items-center justify-center text-saffron-dark shrink-0 mt-0.5">
+                <Calculator size={16} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-foreground mb-1 leading-snug">
+                  Step-by-step solution for Exercise 6.2, Q4.
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-[9px] bg-slate-gray border border-border text-muted-foreground px-2 py-0.5 rounded-full font-bold">
+                    Math
+                  </span>
+                  <span className="text-[9px] text-muted-foreground">Yesterday</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Activity Item 3 */}
+            <Link
+              href="/dashboard/rag"
+              className="flex gap-4 items-start p-3 rounded-xl hover:bg-slate-gray/50 border border-transparent hover:border-border transition-all cursor-pointer"
+            >
+              <div className="size-9 rounded-xl bg-teal-light/20 border border-teal-accent/15 flex items-center justify-center text-teal-accent shrink-0 mt-0.5">
+                <Compass size={16} />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-foreground mb-1 leading-snug">
+                  Summary of Cell Division process.
+                </p>
+                <div className="flex items-center gap-2">
+                  <span className="text-[9px] bg-slate-gray border border-border text-muted-foreground px-2 py-0.5 rounded-full font-bold">
+                    Biology
+                  </span>
+                  <span className="text-[9px] text-muted-foreground">2 days ago</span>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
 
-        {/* Card 5: Micro-community Quick Card (Col Span 3) */}
-        <div className="bento-card md:col-span-3 p-6 rounded-2xl bg-card border border-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-slate-gray border border-border flex items-center justify-center text-teal-accent shrink-0">
-              <MessageSquare size={20} />
-            </div>
-            <div>
-              <h3 className="font-extrabold text-lg leading-tight">Study Community Hub</h3>
-              <p className="text-muted-foreground text-xs mt-0.5">
-                Join discussions, clear doubts with peers, and share notes with classmates.
-              </p>
-            </div>
-          </div>
-          <Link
-            href="/dashboard/community"
-            className="px-5 py-2.5 rounded-xl bg-slate-gray border border-border text-xs font-bold hover:bg-teal-accent hover:text-white transition-colors"
-          >
-            Enter Community board
-          </Link>
-        </div>
       </div>
     </div>
   );

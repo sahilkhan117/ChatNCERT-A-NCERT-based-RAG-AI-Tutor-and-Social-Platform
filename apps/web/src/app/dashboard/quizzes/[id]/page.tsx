@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Trophy, Flame, ChevronLeft, ChevronRight, Clock, Award, Star } from "lucide-react";
@@ -12,7 +12,8 @@ interface Question {
   correctIndex: number;
 }
 
-export default function QuizTakerPage({ params }: { params: { id: string } }) {
+export default function QuizTakerPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   const router = useRouter();
 
   // Mock quiz questions

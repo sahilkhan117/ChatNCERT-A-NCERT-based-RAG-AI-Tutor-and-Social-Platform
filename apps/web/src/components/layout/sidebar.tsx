@@ -35,6 +35,7 @@ export function Sidebar({ userRole, userName }: SidebarProps) {
       { name: "Community Feed", href: "/dashboard/community", icon: Users },
       { name: "Practice Quizzes", href: "/dashboard/quizzes", icon: BookOpen },
       { name: "Assignments", href: "/dashboard/assignments", icon: FileText },
+      { name: "Settings", href: "/dashboard/settings", icon: Settings },
     ],
     instructor: [
       { name: "Overview", href: "/instructor", icon: LayoutDashboard },
