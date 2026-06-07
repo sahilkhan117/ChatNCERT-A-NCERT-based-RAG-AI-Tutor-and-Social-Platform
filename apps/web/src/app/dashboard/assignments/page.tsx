@@ -99,7 +99,7 @@ export default function AssignmentsPage() {
         {assignments.map((assignment) => (
           <div
             key={assignment.id}
-            className="p-6 rounded-2xl bg-card border border-border shadow-sm space-y-4 hover:border-teal-accent/25 transition-all duration-300"
+            className="p-6 rounded-2xl bg-card border border-neutral-500/30 shadow-sm space-y-4 hover:border-teal-accent/25 transition-all duration-300"
           >
             {/* Title bar */}
             <div className="flex justify-between items-start gap-4">
@@ -119,7 +119,7 @@ export default function AssignmentsPage() {
                   {assignment.title}
                 </h3>
               </div>
-              <span className="text-xs font-bold text-muted-foreground flex items-center gap-1.5 bg-slate-gray border border-border px-2.5 py-1 rounded-full">
+              <span className="text-xs font-bold text-muted-foreground flex items-center gap-1.5 bg-slate-gray border border-neutral-500/30 px-2.5 py-1 rounded-full">
                 <Calendar size={12} className="text-muted-foreground" />
                 Due: {assignment.dueDate}
               </span>
@@ -131,7 +131,7 @@ export default function AssignmentsPage() {
             </p>
 
             {/* Rubrics */}
-            <div className="p-4 rounded-xl bg-slate-gray border border-border">
+            <div className="p-4 rounded-xl bg-slate-gray border border-neutral-500/30">
               <h4 className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-2">
                 Grading Criteria
               </h4>

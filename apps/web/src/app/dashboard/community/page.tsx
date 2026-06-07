@@ -224,7 +224,7 @@ export default function CommunityPage() {
                   onClick={() => setActiveCategory(cat.name)}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all ${
                     isActive
-                      ? "bg-card shadow-sm border border-border text-teal-accent font-semibold"
+                      ? "bg-card shadow-sm border border-neutral-500/30 text-teal-accent font-semibold"
                       : "hover:bg-slate-gray/60 text-muted-foreground hover:text-foreground"
                   }`}
                   type="button"
@@ -242,13 +242,13 @@ export default function CommunityPage() {
           
           {/* Post Creator Container */}
           <div
-            className={`bg-card rounded-2xl border border-border p-4 transition-all duration-300 relative ${
+            className={`bg-card rounded-2xl border border-neutral-500/30 p-4 transition-all duration-300 relative ${
               isCreatorFocused ? "shadow-md ring-1 ring-teal-accent/25" : "shadow-sm"
             }`}
           >
             <div className="flex gap-3 items-start">
               <div
-                className="size-9 rounded-full bg-cover bg-center border border-border shrink-0 mt-0.5"
+                className="size-9 rounded-full bg-cover bg-center border border-neutral-500/30 shrink-0 mt-0.5"
                 style={{
                   backgroundImage: `url("https://lh3.googleusercontent.com/aida/AP1WRLt5ebnnCRad9z-v6QVXXzOOBqFJM0naXp_sGBeKDv7yJqteq62ilqjz_HjPfJdWrrHxhTS-s7FZobbly1b6TfGS5GVcWEdBpdf9j066L5adtkBKKVjCWWloC0MybHELNtMtB2OOTqZDfwja4kMltjWeiyIN9nNPAuxrLuHPMVXXSyfDKvQDbHrxdiXStFr90eElqvwEIQqCx5Bhv8GTKCu10Hu7n7PIPYQi6te67wIr9YUK9fvOIosQhvyZ")`,
                 }}
@@ -332,7 +332,7 @@ export default function CommunityPage() {
               .map((post) => (
                 <article
                   key={post.id}
-                  className="bg-card rounded-2xl border border-border p-5 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="bg-card rounded-2xl border border-neutral-500/30 p-5 shadow-sm hover:shadow-md transition-all duration-300"
                 >
                   {/* Post Header */}
                   <div className="flex justify-between items-start mb-3">
@@ -343,7 +343,7 @@ export default function CommunityPage() {
                         </div>
                       ) : (
                         <div
-                          className="size-9 rounded-full bg-cover bg-center border border-border shrink-0"
+                          className="size-9 rounded-full bg-cover bg-center border border-neutral-500/30 shrink-0"
                           style={{ backgroundImage: `url("${post.authorAvatar}")` }}
                         ></div>
                       )}
@@ -444,10 +444,10 @@ export default function CommunityPage() {
                       {post.comments.map((comm) => (
                         <div key={comm.id} className="flex gap-3 items-start pl-0 sm:pl-12">
                           <div
-                            className="size-7 rounded-full bg-cover bg-center border border-border shrink-0 mt-0.5"
+                            className="size-7 rounded-full bg-cover bg-center border border-neutral-500/30 shrink-0 mt-0.5"
                             style={{ backgroundImage: `url("${comm.authorAvatar}")` }}
                           ></div>
-                          <div className="flex-1 bg-slate-gray/30 rounded-xl p-3 border border-border/50 text-xs">
+                          <div className="flex-1 bg-slate-gray/30 rounded-xl p-3 border border-neutral-500/30/50 text-xs">
                             <div className="flex justify-between items-center mb-1 font-bold">
                               <span className="text-foreground">{comm.authorName}</span>
                               <span className="text-[9px] text-muted-foreground font-medium">
@@ -473,7 +473,7 @@ export default function CommunityPage() {
                             }))
                           }
                           placeholder="Write a reply..."
-                          className="flex-grow px-3 py-2 rounded-xl border border-border bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-xs text-foreground"
+                          className="flex-grow px-3 py-2 rounded-xl border border-neutral-500/30 bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-xs text-foreground"
                         />
                         <button
                           onClick={() => handleCreateComment(post.id)}
@@ -492,7 +492,7 @@ export default function CommunityPage() {
 
         {/* Right Column: Trending Sidebar */}
         <aside className="w-full lg:w-[220px] shrink-0 sticky top-20 hidden xl:flex flex-col gap-4">
-          <div className="bg-card rounded-2xl border border-border p-5 shadow-sm">
+          <div className="bg-card rounded-2xl border border-neutral-500/30 p-5 shadow-sm">
             <h2 className="text-foreground text-xs font-extrabold uppercase tracking-wider mb-4 flex items-center gap-2">
               <TrendingUp size={16} className="text-teal-accent" /> Trending Topics
             </h2>

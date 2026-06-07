@@ -82,7 +82,7 @@ export function Sidebar({ userRole, userName }: SidebarProps) {
 
       {/* User Quick Info */}
       {!collapsed && (
-        <div className="p-4 mx-4 my-3 rounded-xl bg-slate-gray border border-border flex items-center gap-3">
+        <div className="p-4 mx-4 my-3 rounded-xl bg-slate-gray border border-neutral-500/30 flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-teal-accent text-white font-bold flex items-center justify-center">
             {userName[0].toUpperCase()}
           </div>

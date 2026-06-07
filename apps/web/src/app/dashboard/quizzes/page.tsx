@@ -69,12 +69,12 @@ export default function QuizzesPage() {
         {quizzes.map((quiz) => (
           <div
             key={quiz.id}
-            className="p-6 rounded-2xl bg-card border border-border shadow-sm flex flex-col justify-between hover:border-teal-accent/30 transition-all duration-300 transform hover:scale-[1.01]"
+            className="p-6 rounded-2xl bg-card border border-neutral-500/30 shadow-sm flex flex-col justify-between hover:border-teal-accent/30 transition-all duration-300 transform hover:scale-[1.01]"
           >
             <div>
               {/* Badges row */}
               <div className="flex justify-between items-start gap-2">
-                <span className="text-[10px] font-bold bg-slate-gray border border-border px-2.5 py-1 rounded-full uppercase tracking-wider text-muted-foreground">
+                <span className="text-[10px] font-bold bg-slate-gray border border-neutral-500/30 px-2.5 py-1 rounded-full uppercase tracking-wider text-muted-foreground">
                   {quiz.subject} • {quiz.class}
                 </span>
                 <span

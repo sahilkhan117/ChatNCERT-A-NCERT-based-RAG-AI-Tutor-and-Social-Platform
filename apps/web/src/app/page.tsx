@@ -102,7 +102,7 @@ export default function LandingPage() {
           {/* Theme switcher */}
           <button
             onClick={toggleTheme}
-            className="w-9 h-9 rounded-lg border border-border flex items-center justify-center hover:bg-card hover:text-accent-bright transition-all"
+            className="w-9 h-9 rounded-full border border-neutral-500/30 flex items-center justify-center hover:bg-card hover:text-accent-bright transition-all"
             type="button"
             aria-label="Toggle Theme"
           >
@@ -147,7 +147,7 @@ export default function LandingPage() {
             </Link>
             <a
               href="#platforms"
-              className="px-6 py-3.5 border border-border hover:bg-card text-foreground font-semibold text-sm rounded-lg transition-colors flex items-center gap-1"
+              className="px-6 py-3.5 border border-neutral-500/30 hover:bg-card text-foreground font-semibold text-sm rounded-lg transition-colors flex items-center gap-1"
             >
               For EdTech Platforms &rarr;
             </a>
@@ -169,7 +169,7 @@ export default function LandingPage() {
 
         {/* HERO RIGHT: Interactive Chat Visual */}
         <div className="w-full relative animate-fade-up delay-100">
-          <div className="relative border border-border rounded-2xl bg-card shadow-2xl overflow-hidden">
+          <div className="relative border border-neutral-500/30 rounded-2xl bg-card shadow-2xl overflow-hidden">
             {/* Header */}
             <div className="px-5 py-4 border-b border-border bg-background/50 flex items-center justify-between">
               <div className="flex gap-1.5">
@@ -199,14 +199,14 @@ export default function LandingPage() {
                 <div className="w-8 h-8 rounded-lg bg-accent-bright/15 text-accent-bright font-bold flex items-center justify-center text-sm shrink-0 animate-bounce-slow">
                   🦉
                 </div>
-                <div className="p-3.5 rounded-2xl rounded-tl-none bg-background/50 border border-border max-w-[80%] space-y-2 leading-relaxed">
+                <div className="p-3.5 rounded-2xl rounded-tl-none bg-background/50 border border-neutral-500/30 max-w-[80%] space-y-2 leading-relaxed">
                   <p>
                     In a <strong>displacement reaction</strong>, a more reactive element displaces a less reactive element from its salt solution.
                   </p>
                   <p className="text-muted-foreground">
                     For example, when iron nails are placed in blue copper sulphate solution, iron displaces copper:
                   </p>
-                  <pre className="p-2 rounded bg-background border border-border text-[10px] font-mono overflow-x-auto text-accent-bright">
+                  <pre className="p-2 rounded bg-background border border-neutral-500/30 text-[10px] font-mono overflow-x-auto text-accent-bright">
                     Fe(s) + CuSO4(aq) &rarr; FeSO4(aq) + Cu(s)
                   </pre>
                   {/* Citation */}
@@ -221,7 +221,7 @@ export default function LandingPage() {
 
             {/* Input mock */}
             <div className="p-4 border-t border-border bg-background/35 flex items-center gap-3">
-              <div className="flex-1 px-3 py-2 bg-background border border-border rounded-lg text-muted-foreground/60 text-xs">
+              <div className="flex-1 px-3 py-2 bg-background border border-neutral-500/30 rounded-lg text-muted-foreground/60 text-xs">
                 Ask a follow-up question...
               </div>
               <button className="w-8 h-8 bg-accent-bright hover:bg-[#00ffca] rounded-lg flex items-center justify-center transition-all shrink-0">
@@ -231,7 +231,7 @@ export default function LandingPage() {
           </div>
 
           {/* Floating Badges */}
-          <div className="absolute -bottom-6 -left-6 bg-card border border-border rounded-xl p-3 shadow-2xl flex items-center gap-3 animate-float">
+          <div className="absolute -bottom-6 -left-6 bg-card border border-neutral-500/30 rounded-xl p-3 shadow-2xl flex items-center gap-3 animate-float">
             <div className="w-8 h-8 rounded-lg bg-accent-bright/10 text-accent-bright flex items-center justify-center text-lg">
               🏆
             </div>
@@ -278,7 +278,7 @@ export default function LandingPage() {
 
       {/* STATS */}
       <section className="bg-background border-b border-border py-12 relative z-10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 border border-border rounded-2xl overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 sm:px-12 grid grid-cols-2 md:grid-cols-4 gap-px bg-border/40 border border-neutral-500/30 rounded-2xl overflow-hidden">
           <div className="p-8 text-center bg-background hover:bg-card/30 transition-colors">
             <h3 className="font-serif text-4xl sm:text-5xl font-normal text-foreground leading-none">
               98.4<span className="text-accent-bright">%</span>
@@ -332,7 +332,7 @@ export default function LandingPage() {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Card 1 */}
-          <div className="bento-card p-8 bg-card border border-border rounded-2xl space-y-4 relative overflow-hidden group">
+          <div className="bento-card p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-bright to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="w-12 h-12 rounded-xl bg-accent-bright/10 text-accent-bright flex items-center justify-center">
               <Bot size={24} />
@@ -344,7 +344,7 @@ export default function LandingPage() {
           </div>
 
           {/* Card 2 */}
-          <div className="bento-card p-8 bg-card border border-border rounded-2xl space-y-4 relative overflow-hidden group">
+          <div className="bento-card p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-warm to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="w-12 h-12 rounded-xl bg-accent-warm/10 text-accent-warm flex items-center justify-center">
               <BookOpen size={24} />
@@ -356,7 +356,7 @@ export default function LandingPage() {
           </div>
 
           {/* Card 3 */}
-          <div className="bento-card p-8 bg-card border border-border rounded-2xl space-y-4 relative overflow-hidden group">
+          <div className="bento-card p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-coral to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="w-12 h-12 rounded-xl bg-accent-coral/10 text-accent-coral flex items-center justify-center">
               <MessageSquare size={24} />
@@ -368,7 +368,7 @@ export default function LandingPage() {
           </div>
 
           {/* Card 4 */}
-          <div className="bento-card p-8 bg-card border border-border rounded-2xl space-y-4 relative overflow-hidden group">
+          <div className="bento-card p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group">
             <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-bright to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="w-12 h-12 rounded-xl bg-accent-bright/10 text-accent-bright flex items-center justify-center">
               <Award size={24} />
@@ -399,7 +399,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="p-8 bg-background border border-border rounded-2xl space-y-4 relative overflow-hidden group hover:shadow-2xl hover:border-accent-bright/20 transition-all duration-300 hover:-translate-y-1">
+            <div className="p-8 bg-background border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group hover:shadow-2xl hover:border-accent-bright/20 transition-all duration-300 hover:-translate-y-1">
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-accent-bright opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="font-serif text-4xl text-border leading-none font-normal">01</div>
               <h3 className="font-display font-semibold text-base tracking-tight mt-4">White-Labeled Core</h3>
@@ -409,7 +409,7 @@ export default function LandingPage() {
             </div>
 
             {/* Card 2 */}
-            <div className="p-8 bg-background border border-border rounded-2xl space-y-4 relative overflow-hidden group hover:shadow-2xl hover:border-accent-warm/20 transition-all duration-300 hover:-translate-y-1">
+            <div className="p-8 bg-background border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group hover:shadow-2xl hover:border-accent-warm/20 transition-all duration-300 hover:-translate-y-1">
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-accent-warm opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="font-serif text-4xl text-border leading-none font-normal">02</div>
               <h3 className="font-display font-semibold text-base tracking-tight mt-4">Secure Local Ollama</h3>
@@ -419,7 +419,7 @@ export default function LandingPage() {
             </div>
 
             {/* Card 3 */}
-            <div className="p-8 bg-background border border-border rounded-2xl space-y-4 relative overflow-hidden group hover:shadow-2xl hover:border-accent-coral/20 transition-all duration-300 hover:-translate-y-1">
+            <div className="p-8 bg-background border border-neutral-500/30 rounded-2xl space-y-4 relative overflow-hidden group hover:shadow-2xl hover:border-accent-coral/20 transition-all duration-300 hover:-translate-y-1">
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-accent-coral opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="font-serif text-4xl text-border leading-none font-normal">03</div>
               <h3 className="font-display font-semibold text-base tracking-tight mt-4">Hybrid REST & Webhooks</h3>
@@ -445,7 +445,7 @@ export default function LandingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 relative">
           {/* Step 1 */}
           <div className="text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
+            <div className="w-12 h-12 rounded-full bg-background border border-neutral-500/30 flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
               1
             </div>
             <h3 className="font-display font-semibold text-xs uppercase tracking-wider">Ingest Textbooks</h3>
@@ -456,7 +456,7 @@ export default function LandingPage() {
 
           {/* Step 2 */}
           <div className="text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
+            <div className="w-12 h-12 rounded-full bg-background border border-neutral-500/30 flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
               2
             </div>
             <h3 className="font-display font-semibold text-xs uppercase tracking-wider">Chunk & Embed</h3>
@@ -467,7 +467,7 @@ export default function LandingPage() {
 
           {/* Step-3 */}
           <div className="text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
+            <div className="w-12 h-12 rounded-full bg-background border border-neutral-500/30 flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
               3
             </div>
             <h3 className="font-display font-semibold text-xs uppercase tracking-wider">Connect Tunnel</h3>
@@ -478,7 +478,7 @@ export default function LandingPage() {
 
           {/* Step 4 */}
           <div className="text-center space-y-4">
-            <div className="w-12 h-12 rounded-full bg-background border border-border flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
+            <div className="w-12 h-12 rounded-full bg-background border border-neutral-500/30 flex items-center justify-center font-serif text-lg font-normal text-foreground mx-auto hover:bg-accent-bright/10 hover:border-accent-bright hover:text-accent-bright transition-all">
               4
             </div>
             <h3 className="font-display font-semibold text-xs uppercase tracking-wider">Launch Hall</h3>
@@ -511,7 +511,7 @@ export default function LandingPage() {
           {/* Comparison grids */}
           <div className="grid grid-cols-2 gap-4">
             {/* Generic RAG */}
-            <div className="p-6 bg-background border border-border rounded-xl space-y-4">
+            <div className="p-6 bg-background border border-neutral-500/30 rounded-xl space-y-4">
               <h4 className="font-display text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                 Generic RAG Models
               </h4>
@@ -614,7 +614,7 @@ export default function LandingPage() {
                 className={`mt-8 w-full py-3 rounded-lg font-bold text-xs shadow-md transition-all duration-200 ${
                   plan.accent
                     ? "bg-accent-bright text-ink hover:bg-[#00ffca] hover:shadow-lg hover:shadow-accent-bright/20"
-                    : "bg-background border border-border text-foreground hover:bg-card"
+                    : "bg-background border border-neutral-500/30 text-foreground hover:bg-card"
                 }`}
               >
                 {plan.buttonText}
@@ -637,7 +637,7 @@ export default function LandingPage() {
           </div>
 
           {/* Code block */}
-          <div className="p-5 rounded-xl bg-background border border-border font-mono text-xs text-accent-bright shadow-2xl relative overflow-x-auto">
+          <div className="p-5 rounded-xl bg-background border border-neutral-500/30 font-mono text-xs text-accent-bright shadow-2xl relative overflow-x-auto">
             <div className="absolute top-3 right-3 text-[10px] text-muted-foreground font-sans font-semibold uppercase tracking-wider">
               bash curl
             </div>
@@ -665,7 +665,7 @@ export default function LandingPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-8 bg-card border border-border rounded-2xl space-y-6 hover:border-accent-bright/20 transition-all duration-300">
+          <div className="p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-6 hover:border-accent-bright/20 transition-all duration-300">
             <p className="font-serif text-sm leading-relaxed italic font-normal text-foreground/90">
               "The page-specific citations solved our verification problem completely. Students finally trust the AI answers because they can open the exact PDF source location."
             </p>
@@ -680,7 +680,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="p-8 bg-card border border-border rounded-2xl space-y-6 hover:border-accent-bright/20 transition-all duration-300">
+          <div className="p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-6 hover:border-accent-bright/20 transition-all duration-300">
             <p className="font-serif text-sm leading-relaxed italic font-normal text-foreground/90">
               "We connected Wrangler to our local Ollama server in less than ten minutes. The vector search is sub-millisecond and runs entirely offline without API costs."
             </p>
@@ -695,7 +695,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="p-8 bg-card border border-border rounded-2xl space-y-6 hover:border-accent-bright/20 transition-all duration-300">
+          <div className="p-8 bg-card border border-neutral-500/30 rounded-2xl space-y-6 hover:border-accent-bright/20 transition-all duration-300">
             <p className="font-serif text-sm leading-relaxed italic font-normal text-foreground/90">
               "The streak dashboard keeps me studying chemistry everyday. It feels less like reading a dry textbook and more like gaming with my friends in the study hall."
             </p>
@@ -730,7 +730,7 @@ export default function LandingPage() {
           </Link>
           <a
             href="#pricing"
-            className="px-6 py-3.5 border border-border hover:bg-card text-foreground font-semibold text-sm rounded-lg transition-colors"
+            className="px-6 py-3.5 border border-neutral-500/30 hover:bg-card text-foreground font-semibold text-sm rounded-lg transition-colors"
           >
             SaaS Plan Pricing
           </a>

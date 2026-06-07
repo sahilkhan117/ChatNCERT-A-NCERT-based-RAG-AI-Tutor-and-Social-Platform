@@ -69,7 +69,7 @@ export default function StudentDashboard() {
         </div>
         <Link
           href="/dashboard/rag"
-          className="flex items-center gap-2 bg-card hover:bg-slate-gray border border-border shadow-sm px-4 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
+          className="flex items-center gap-2 bg-card hover:bg-slate-gray border border-neutral-500/30 shadow-sm px-4 py-2 rounded-xl text-xs font-semibold text-muted-foreground hover:text-foreground transition-all"
         >
           <Search size={14} className="text-muted-foreground" />
           <span>Search NCERT...</span>
@@ -84,7 +84,7 @@ export default function StudentDashboard() {
           onMouseMove={(e) => handleMouseMove(e, "streak")}
           onMouseLeave={() => handleMouseLeave("streak")}
           style={hoverStyles["streak"]}
-          className="bg-card rounded-2xl border border-border shadow-sm p-6 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
+          className="bg-card rounded-2xl border border-neutral-500/30 shadow-sm p-6 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
         >
           <div className="absolute -right-4 -top-4 size-24 bg-saffron/10 rounded-full blur-xl group-hover:bg-saffron/20 transition-colors"></div>
           <div className="flex items-center justify-between z-10">
@@ -143,7 +143,7 @@ export default function StudentDashboard() {
           onMouseMove={(e) => handleMouseMove(e, "physics")}
           onMouseLeave={() => handleMouseLeave("physics")}
           style={hoverStyles["physics"]}
-          className="bg-card rounded-2xl border border-border shadow-sm p-5 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
+          className="bg-card rounded-2xl border border-neutral-500/30 shadow-sm p-5 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
         >
           <div className="absolute inset-0 bg-radial from-teal-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
           <div className="z-10 bg-teal-light/30 text-teal-accent w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
@@ -156,7 +156,7 @@ export default function StudentDashboard() {
             <h3 className="font-extrabold text-foreground text-lg leading-tight">
               Physics
             </h3>
-            <div className="w-full bg-slate-gray border border-border h-2 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-slate-gray border border-neutral-500/30 h-2 rounded-full mt-3 overflow-hidden">
               <div className="bg-teal-accent h-full w-[65%] rounded-full" />
             </div>
           </div>
@@ -167,7 +167,7 @@ export default function StudentDashboard() {
           onMouseMove={(e) => handleMouseMove(e, "math")}
           onMouseLeave={() => handleMouseLeave("math")}
           style={hoverStyles["math"]}
-          className="bg-card rounded-2xl border border-border shadow-sm p-5 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
+          className="bg-card rounded-2xl border border-neutral-500/30 shadow-sm p-5 flex flex-col justify-between transition-all duration-300 ease-out relative overflow-hidden group cursor-pointer"
         >
           <div className="absolute right-0 top-0 w-24 h-24 bg-gradient-to-bl from-saffron/10 to-transparent rounded-bl-full opacity-50 group-hover:scale-110 transition-transform"></div>
           <div className="z-10 bg-saffron-light border border-saffron/10 text-saffron-dark w-10 h-10 rounded-xl flex items-center justify-center shrink-0">
@@ -180,7 +180,7 @@ export default function StudentDashboard() {
             <h3 className="font-extrabold text-foreground text-lg leading-tight">
               Mathematics
             </h3>
-            <div className="w-full bg-slate-gray border border-border h-2 rounded-full mt-3 overflow-hidden">
+            <div className="w-full bg-slate-gray border border-neutral-500/30 h-2 rounded-full mt-3 overflow-hidden">
               <div className="bg-saffron h-full w-[30%] rounded-full" />
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function StudentDashboard() {
           onMouseMove={(e) => handleMouseMove(e, "daily-quiz")}
           onMouseLeave={() => handleMouseLeave("daily-quiz")}
           style={hoverStyles["daily-quiz"]}
-          className="md:col-span-2 bg-ink text-white rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-center justify-between border border-border/10 relative overflow-hidden transition-all duration-300 ease-out cursor-pointer group"
+          className="md:col-span-2 bg-ink text-white rounded-2xl shadow-sm p-6 flex flex-col sm:flex-row items-center justify-between border border-neutral-500/30/10 relative overflow-hidden transition-all duration-300 ease-out cursor-pointer group"
         >
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:20px_20px] opacity-50 group-hover:opacity-100 transition-opacity"></div>
           <div className="z-10 text-center sm:text-left mb-4 sm:mb-0">
@@ -217,7 +217,7 @@ export default function StudentDashboard() {
         </div>
 
         {/* Recent Activity (2x2) */}
-        <div className="md:col-span-2 md:row-span-2 bg-card rounded-2xl border border-border shadow-sm p-6 flex flex-col">
+        <div className="md:col-span-2 md:row-span-2 bg-card rounded-2xl border border-neutral-500/30 shadow-sm p-6 flex flex-col">
           <div className="flex items-center justify-between mb-5">
             <h3 className="font-extrabold text-foreground text-base flex items-center gap-2">
               <Brain size={18} className="text-teal-accent" /> Recent AI Queries
@@ -244,7 +244,7 @@ export default function StudentDashboard() {
                   Explain Faraday's Law of Induction simply.
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] bg-slate-gray border border-border text-muted-foreground px-2 py-0.5 rounded-full font-bold">
+                  <span className="text-[9px] bg-slate-gray border border-neutral-500/30 text-muted-foreground px-2 py-0.5 rounded-full font-bold">
                     Physics
                   </span>
                   <span className="text-[9px] text-muted-foreground">2 hours ago</span>
@@ -265,7 +265,7 @@ export default function StudentDashboard() {
                   Step-by-step solution for Exercise 6.2, Q4.
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] bg-slate-gray border border-border text-muted-foreground px-2 py-0.5 rounded-full font-bold">
+                  <span className="text-[9px] bg-slate-gray border border-neutral-500/30 text-muted-foreground px-2 py-0.5 rounded-full font-bold">
                     Math
                   </span>
                   <span className="text-[9px] text-muted-foreground">Yesterday</span>
@@ -286,7 +286,7 @@ export default function StudentDashboard() {
                   Summary of Cell Division process.
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-[9px] bg-slate-gray border border-border text-muted-foreground px-2 py-0.5 rounded-full font-bold">
+                  <span className="text-[9px] bg-slate-gray border border-neutral-500/30 text-muted-foreground px-2 py-0.5 rounded-full font-bold">
                     Biology
                   </span>
                   <span className="text-[9px] text-muted-foreground">2 days ago</span>

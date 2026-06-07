@@ -31,7 +31,7 @@ export function Header({ title, userRole }: HeaderProps) {
         {/* Theme Toggle Button */}
         <button
           onClick={toggleTheme}
-          className="w-10 h-10 rounded-full bg-slate-gray border border-border flex items-center justify-center hover:bg-teal-light hover:text-teal-accent text-muted-foreground hover:scale-105 transition-all"
+          className="w-10 h-10 rounded-full bg-slate-gray border border-neutral-500/30 flex items-center justify-center hover:bg-teal-light hover:text-teal-accent text-muted-foreground hover:scale-105 transition-all"
           type="button"
           aria-label="Toggle Theme"
         >
@@ -40,7 +40,7 @@ export function Header({ title, userRole }: HeaderProps) {
 
         {/* Notifications Icon Button */}
         <button
-          className="relative w-10 h-10 rounded-full bg-slate-gray border border-border flex items-center justify-center hover:bg-teal-light hover:text-teal-accent text-muted-foreground hover:scale-105 transition-all"
+          className="relative w-10 h-10 rounded-full bg-slate-gray border border-neutral-500/30 flex items-center justify-center hover:bg-teal-light hover:text-teal-accent text-muted-foreground hover:scale-105 transition-all"
           type="button"
         >
           <Bell size={18} />

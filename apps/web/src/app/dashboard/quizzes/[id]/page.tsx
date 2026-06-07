@@ -113,7 +113,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
   // Render Finished Summary Card
   if (finished) {
     return (
-      <div className="max-w-xl mx-auto p-8 rounded-2xl bg-card border border-border text-center shadow-lg space-y-6">
+      <div className="max-w-xl mx-auto p-8 rounded-2xl bg-card border border-neutral-500/30 text-center shadow-lg space-y-6">
         <Trophy className="mx-auto text-saffron w-16 h-16 animate-bounce" />
         <div>
           <h2 className="text-3xl font-black text-foreground leading-tight">Quiz Completed!</h2>
@@ -125,7 +125,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
 
         {/* Gamified XP and Score boxes */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 rounded-xl bg-slate-gray border border-border flex flex-col items-center justify-center">
+          <div className="p-4 rounded-xl bg-slate-gray border border-neutral-500/30 flex flex-col items-center justify-center">
             <span className="text-3xl font-black text-teal-accent flex items-center gap-1">
               <Award size={20} />
               {score}%
@@ -134,7 +134,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
               Final Score
             </p>
           </div>
-          <div className="p-4 rounded-xl bg-slate-gray border border-border flex flex-col items-center justify-center">
+          <div className="p-4 rounded-xl bg-slate-gray border border-neutral-500/30 flex flex-col items-center justify-center">
             <span className="text-3xl font-black text-saffron flex items-center gap-1">
               <Star size={20} className="fill-saffron text-saffron" />+{score * 5} XP
             </span>
@@ -148,7 +148,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
         <div className="flex gap-4 pt-4">
           <Link
             href="/dashboard/quizzes"
-            className="flex-1 py-3 rounded-xl bg-slate-gray hover:bg-muted border border-border font-bold text-xs text-foreground transition-colors"
+            className="flex-1 py-3 rounded-xl bg-slate-gray hover:bg-muted border border-neutral-500/30 font-bold text-xs text-foreground transition-colors"
           >
             Practice Board
           </Link>
@@ -170,7 +170,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       {/* Top bar with timer & progress */}
-      <div className="p-4 rounded-2xl bg-card border border-border flex justify-between items-center shadow-sm">
+      <div className="p-4 rounded-2xl bg-card border border-neutral-500/30 flex justify-between items-center shadow-sm">
         <div>
           <span className="text-[10px] font-bold text-teal-accent uppercase tracking-wider">
             Quiz Mode
@@ -200,7 +200,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
       </div>
 
       {/* Question Card */}
-      <div className="p-6 rounded-2xl bg-card border border-border shadow-sm space-y-6">
+      <div className="p-6 rounded-2xl bg-card border border-neutral-500/30 shadow-sm space-y-6">
         <h3 className="font-extrabold text-lg leading-snug">{currentQuestion.text}</h3>
 
         {/* Options list */}
@@ -238,7 +238,7 @@ export default function QuizTakerPage({ params }: { params: Promise<{ id: string
           <button
             onClick={handleBack}
             disabled={currentIdx === 0}
-            className="px-4 py-2.5 rounded-xl border border-border bg-slate-gray hover:bg-muted font-bold text-xs disabled:opacity-50 text-foreground transition-colors flex items-center gap-1.5"
+            className="px-4 py-2.5 rounded-xl border border-neutral-500/30 bg-slate-gray hover:bg-muted font-bold text-xs disabled:opacity-50 text-foreground transition-colors flex items-center gap-1.5"
             type="button"
           >
             <ChevronLeft size={16} /> Previous

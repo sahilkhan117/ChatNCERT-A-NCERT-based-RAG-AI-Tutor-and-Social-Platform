@@ -88,7 +88,7 @@ export default function RAGPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto flex flex-col h-[calc(100vh-12rem)] relative bg-card border border-border rounded-2xl shadow-sm overflow-hidden">
+    <div className="max-w-4xl mx-auto flex flex-col h-[calc(100vh-12rem)] relative bg-card border border-neutral-500/30 rounded-2xl shadow-sm overflow-hidden">
       {/* Target Book Filter Topbar */}
       <div className="p-4 bg-muted border-b border-border flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -116,7 +116,7 @@ export default function RAGPage() {
           >
             {/* Avatar */}
             <div
-              className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 border border-border ${
+              className={`w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm shrink-0 border border-neutral-500/30 ${
                 msg.role === "user" ? "bg-teal-accent text-white" : "bg-saffron text-foreground"
               }`}
             >
@@ -128,7 +128,7 @@ export default function RAGPage() {
               className={`p-4 rounded-2xl text-sm leading-relaxed ${
                 msg.role === "user"
                   ? "bg-teal-accent text-white rounded-tr-none"
-                  : "bg-slate-gray text-foreground rounded-tl-none border border-border"
+                  : "bg-slate-gray text-foreground rounded-tl-none border border-neutral-500/30"
               }`}
             >
               <p className="whitespace-pre-wrap">{msg.content}</p>
@@ -160,7 +160,7 @@ export default function RAGPage() {
             <div className="w-9 h-9 rounded-xl bg-saffron text-foreground font-bold flex items-center justify-center animate-bounce">
               🦉
             </div>
-            <div className="p-4 rounded-2xl bg-slate-gray text-muted-foreground border border-border text-sm rounded-tl-none">
+            <div className="p-4 rounded-2xl bg-slate-gray text-muted-foreground border border-neutral-500/30 text-sm rounded-tl-none">
               <span className="animate-pulse">Vidya is searching NCERT chapters...</span>
             </div>
           </div>
@@ -175,7 +175,7 @@ export default function RAGPage() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask Vidya anything (e.g. What is a displacement reaction?)"
-            className="flex-1 px-4 py-3 rounded-xl border border-border bg-slate-gray focus:outline-none focus:ring-2 focus:ring-teal-accent text-sm text-foreground"
+            className="flex-1 px-4 py-3 rounded-xl border border-neutral-500/30 bg-slate-gray focus:outline-none focus:ring-2 focus:ring-teal-accent text-sm text-foreground"
           />
           <button
             type="submit"
@@ -190,7 +190,7 @@ export default function RAGPage() {
       {/* Citation Preview Modal */}
       {activeCitation && (
         <div className="absolute inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center p-6 z-50">
-          <div className="bg-card border border-border rounded-2xl max-w-lg w-full p-6 shadow-xl relative animate-in zoom-in-95 duration-200">
+          <div className="bg-card border border-neutral-500/30 rounded-2xl max-w-lg w-full p-6 shadow-xl relative animate-in zoom-in-95 duration-200">
             <button
               onClick={() => setActiveCitation(null)}
               className="absolute top-4 right-4 text-muted-foreground hover:text-foreground hover:scale-110 transition-transform"
@@ -205,7 +205,7 @@ export default function RAGPage() {
               {activeCitation.documentTitle}
             </h3>
             <p className="text-xs text-muted-foreground mt-0.5">Reference Location: Page {activeCitation.page}</p>
-            <div className="mt-4 p-4 rounded-xl bg-slate-gray border border-border text-sm leading-relaxed italic text-muted-foreground">
+            <div className="mt-4 p-4 rounded-xl bg-slate-gray border border-neutral-500/30 text-sm leading-relaxed italic text-muted-foreground">
               "... {activeCitation.paragraph} ..."
             </div>
             <div className="mt-6 flex justify-end gap-3">

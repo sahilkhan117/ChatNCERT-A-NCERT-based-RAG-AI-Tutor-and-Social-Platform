@@ -72,7 +72,7 @@ export default function SettingsPage() {
       </header>
 
       {/* Ollama Configuration Section */}
-      <section className="bg-card rounded-2xl border border-border p-6 sm:p-8 shadow-sm space-y-6">
+      <section className="bg-card rounded-2xl border border-neutral-500/30 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-3 border-b border-border pb-4">
           <Cpu className="text-teal-accent w-6 h-6 shrink-0" />
           <h2 className="text-lg font-extrabold text-foreground leading-tight">
@@ -92,7 +92,7 @@ export default function SettingsPage() {
               value={apiEndpoint}
               onChange={(e) => setApiEndpoint(e.target.value)}
               placeholder="e.g., http://localhost:11434"
-              className="w-full text-xs font-semibold px-4 py-3 rounded-xl border border-border bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground transition-all"
+              className="w-full text-xs font-semibold px-4 py-3 rounded-xl border border-neutral-500/30 bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground transition-all"
             />
             <p className="mt-1.5 text-[10px] text-muted-foreground font-medium">
               The base URL where your local or tunneled Ollama instance is running.
@@ -109,7 +109,7 @@ export default function SettingsPage() {
                 id="model-select"
                 value={selectedModel}
                 onChange={(e) => setSelectedModel(e.target.value)}
-                className="w-full text-xs font-semibold px-4 py-3 rounded-xl border border-border bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground appearance-none cursor-pointer transition-all"
+                className="w-full text-xs font-semibold px-4 py-3 rounded-xl border border-neutral-500/30 bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground appearance-none cursor-pointer transition-all"
               >
                 <option value="llama3:8b">Llama 3 (8B)</option>
                 <option value="mistral:7b">Mistral (7B)</option>
@@ -133,7 +133,7 @@ export default function SettingsPage() {
                 id="context-limit"
                 value={contextLimit}
                 onChange={(e) => setContextLimit(Number(e.target.value))}
-                className="w-full text-xs font-semibold px-4 py-3 rounded-xl border border-border bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground transition-all"
+                className="w-full text-xs font-semibold px-4 py-3 rounded-xl border border-neutral-500/30 bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground transition-all"
               />
             </div>
             <div>
@@ -170,7 +170,7 @@ export default function SettingsPage() {
               rows={4}
               value={systemPrompt}
               onChange={(e) => setSystemPrompt(e.target.value)}
-              className="w-full text-xs font-semibold p-4 rounded-xl border border-border bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground font-mono resize-y leading-relaxed transition-all"
+              className="w-full text-xs font-semibold p-4 rounded-xl border border-neutral-500/30 bg-slate-gray focus:outline-none focus:ring-1 focus:ring-teal-accent text-foreground font-mono resize-y leading-relaxed transition-all"
             />
             <p className="mt-1.5 text-[10px] text-muted-foreground font-medium">
               This prompt grounds the AI's persona, citation format, and RAG guidelines globally.
@@ -180,7 +180,7 @@ export default function SettingsPage() {
       </section>
 
       {/* Global Branding Section */}
-      <section className="bg-card rounded-2xl border border-border p-6 sm:p-8 shadow-sm space-y-6">
+      <section className="bg-card rounded-2xl border border-neutral-500/30 p-6 sm:p-8 shadow-sm space-y-6">
         <div className="flex items-center gap-3 border-b border-border pb-4">
           <Palette className="text-saffron w-6 h-6 shrink-0" />
           <h2 className="text-lg font-extrabold text-foreground leading-tight">
@@ -193,7 +193,7 @@ export default function SettingsPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             
             {/* Primary Color */}
-            <div className="p-4 border border-border rounded-xl bg-slate-gray/30">
+            <div className="p-4 border border-neutral-500/30 rounded-xl bg-slate-gray/30">
               <label className="block text-xs font-bold text-foreground uppercase tracking-wider mb-3">
                 Primary Brand Color (Teal)
               </label>
@@ -202,13 +202,13 @@ export default function SettingsPage() {
                   type="color"
                   value={primaryColor}
                   onChange={(e) => setPrimaryColor(e.target.value)}
-                  className="h-10 w-16 p-1 rounded-lg border border-border cursor-pointer bg-transparent"
+                  className="h-10 w-16 p-1 rounded-lg border border-neutral-500/30 cursor-pointer bg-transparent"
                 />
                 <input
                   type="text"
                   readOnly
                   value={primaryColor.toUpperCase()}
-                  className="w-full text-xs font-mono font-bold px-3 py-2 rounded-lg border border-border bg-slate-gray text-foreground focus:outline-none"
+                  className="w-full text-xs font-mono font-bold px-3 py-2 rounded-lg border border-neutral-500/30 bg-slate-gray text-foreground focus:outline-none"
                 />
               </div>
               <p className="mt-2 text-[9px] text-muted-foreground font-semibold">
@@ -217,7 +217,7 @@ export default function SettingsPage() {
             </div>
 
             {/* Accent Color */}
-            <div className="p-4 border border-border rounded-xl bg-slate-gray/30">
+            <div className="p-4 border border-neutral-500/30 rounded-xl bg-slate-gray/30">
               <label className="block text-xs font-bold text-foreground uppercase tracking-wider mb-3">
                 Accent Color (Saffron)
               </label>
@@ -226,13 +226,13 @@ export default function SettingsPage() {
                   type="color"
                   value={accentColor}
                   onChange={(e) => setAccentColor(e.target.value)}
-                  className="h-10 w-16 p-1 rounded-lg border border-border cursor-pointer bg-transparent"
+                  className="h-10 w-16 p-1 rounded-lg border border-neutral-500/30 cursor-pointer bg-transparent"
                 />
                 <input
                   type="text"
                   readOnly
                   value={accentColor.toUpperCase()}
-                  className="w-full text-xs font-mono font-bold px-3 py-2 rounded-lg border border-border bg-slate-gray text-foreground focus:outline-none"
+                  className="w-full text-xs font-mono font-bold px-3 py-2 rounded-lg border border-neutral-500/30 bg-slate-gray text-foreground focus:outline-none"
                 />
               </div>
               <p className="mt-2 text-[9px] text-muted-foreground font-semibold">
@@ -267,8 +267,8 @@ export default function SettingsPage() {
 
             {/* Logo details & preview */}
             {logoPreview && (
-              <div className="flex items-center gap-4 p-4 border border-border rounded-xl bg-card shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-300">
-                <div className="w-12 h-12 rounded-xl bg-slate-gray border border-border flex items-center justify-center overflow-hidden shrink-0">
+              <div className="flex items-center gap-4 p-4 border border-neutral-500/30 rounded-xl bg-card shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-300">
+                <div className="w-12 h-12 rounded-xl bg-slate-gray border border-neutral-500/30 flex items-center justify-center overflow-hidden shrink-0">
                   <div className="w-full h-full bg-gradient-to-br from-teal-accent/20 to-saffron/20" />
                 </div>
                 <div className="flex-grow">
@@ -323,7 +323,7 @@ export default function SettingsPage() {
                 setAccentColor("#FF9933");
                 handleRemoveLogo();
               }}
-              className="px-5 py-2.5 rounded-xl border border-border bg-slate-gray hover:bg-muted font-bold text-xs text-foreground transition-colors flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-xl border border-neutral-500/30 bg-slate-gray hover:bg-muted font-bold text-xs text-foreground transition-colors flex items-center gap-1.5"
             >
               <RotateCcw size={14} />
               Reset
