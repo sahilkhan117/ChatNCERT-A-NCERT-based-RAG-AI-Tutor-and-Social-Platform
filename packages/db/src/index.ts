@@ -35,7 +35,7 @@ function getActiveDb() {
 
 // Create a proxy to delegate all properties to the active drizzle instance
 export const db = new Proxy({} as any, {
-  get(target, prop, receiver) {
+  get(target, prop, _receiver) {
     // Handle the case when checking if it's a promise or special symbol
     if (prop === "then" || prop === "toJSON") return undefined;
     
@@ -46,7 +46,7 @@ export const db = new Proxy({} as any, {
     }
     return value;
   },
-  set(target, prop, value, receiver) {
+  set(target, prop, value, _receiver) {
     const activeDb = getActiveDb();
     return Reflect.set(activeDb, prop, value, target);
   }

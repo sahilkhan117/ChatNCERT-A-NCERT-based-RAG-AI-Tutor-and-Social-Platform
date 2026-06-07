@@ -115,7 +115,7 @@ ragRouter.post("/query", async (c) => {
       });
     }
 
-    const contextTexts = closestChunks.map((chunk) => chunk.content);
+    const contextTexts = closestChunks.map((chunk: any) => chunk.content);
 
     // 3. Check tenant settings to see if they use local Ollama tunnel or Gemini
     const [tenant] = await db.select().from(tenants).where(eq(tenants.id, auth.tenantId)).limit(1);
@@ -128,14 +128,14 @@ ragRouter.post("/query", async (c) => {
     }
 
     // 4. Resolve document metadata for citations
-    const documentIds = [...new Set(closestChunks.map((chunk) => chunk.documentId as string))];
+    const documentIds = [...new Set(closestChunks.map((chunk: any) => chunk.documentId as string))] as string[];
     const docs =
       documentIds.length > 0
         ? await db.select().from(documents).where(inArray(documents.id, documentIds))
         : [];
-    const docMap = new Map(docs.map((doc) => [doc.id as string, doc.title as string]));
+    const docMap = new Map(docs.map((doc: any) => [doc.id as string, doc.title as string]));
 
-    const citations = closestChunks.map((chunk) => ({
+    const citations = closestChunks.map((chunk: any) => ({
       documentTitle: docMap.get(chunk.documentId as string) || "NCERT Reference Document",
       page: (chunk.metadata as any)?.page || 1,
       paragraph: (chunk.content as string).substring(0, 100) + "...",

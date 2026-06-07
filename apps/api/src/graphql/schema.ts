@@ -133,7 +133,7 @@ export const schema = createSchema({
             .where(eq(quizAttempts.userId, auth.userId))
             .orderBy(desc(quizAttempts.createdAt));
 
-          const totalScore = attempts.reduce((acc, attempt) => acc + attempt.score, 0);
+          const totalScore = attempts.reduce((acc: number, attempt: any) => acc + attempt.score, 0);
           const avgScore = attempts.length > 0 ? totalScore / attempts.length : 0;
 
           return {
