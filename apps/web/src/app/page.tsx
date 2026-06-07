@@ -344,7 +344,7 @@ export default function LandingPage() {
             <div className="w-12 h-12 rounded-xl bg-accent-bright/10 text-accent-bright flex items-center justify-center">
               <Bot size={24} />
             </div>
-            <h3 className="font-display font-semibold text-base tracking-tight">🦉 AI Tutor Vidya</h3>
+            <h3 className="font-display font-semibold text-base tracking-tight">🦉 AI Tutor Agent</h3>
             <p className="text-muted-foreground text-xs leading-relaxed font-light">
               Chat with our dedicated mascot owl who searches your textbooks in real-time, delivering page-level citations for every single answer.
             </p>

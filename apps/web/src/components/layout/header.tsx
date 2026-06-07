@@ -22,11 +22,6 @@ export function Header({ title, userRole }: HeaderProps) {
 
       {/* Action Badges & Notifications */}
       <div className="flex items-center gap-4">
-        {/* Study Mascot Alert Link */}
-        <div className="hidden sm:flex items-center gap-2 bg-saffron-light border border-saffron/20 px-3 py-1.5 rounded-full text-xs font-semibold text-saffron-dark animate-bounce-slow">
-          <span>🦉</span>
-          <span>Vidya: "Welcome back! Ready to study Class 10 Science today?"</span>
-        </div>
 
         {/* Theme Toggle Button */}
         <button

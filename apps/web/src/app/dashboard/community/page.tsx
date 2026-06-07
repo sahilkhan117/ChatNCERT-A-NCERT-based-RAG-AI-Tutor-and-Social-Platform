@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MessageCircle,
   Plus,
@@ -51,6 +51,13 @@ interface Post {
 }
 
 export default function CommunityPage() {
+  const [userName, setUserName] = useState("Sahil Khan");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("user-name");
+    if (stored) setUserName(stored);
+  }, []);
+
   const [posts, setPosts] = useState<Post[]>([
     {
       id: "post-1",
@@ -121,7 +128,7 @@ export default function CommunityPage() {
 
     const newPost: Post = {
       id: `post-${Date.now()}`,
-      authorName: "Arjun Sharma",
+      authorName: userName,
       authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
       authorBadge: "Student",
       category: activeCategory === "All Discussions" ? "General" : activeCategory,
@@ -176,7 +183,7 @@ export default function CommunityPage() {
 
     const newComment: Comment = {
       id: `comment-${Date.now()}`,
-      authorName: "Arjun Sharma",
+      authorName: userName,
       authorAvatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
       content: text.trim(),
       createdAt: "Just now",

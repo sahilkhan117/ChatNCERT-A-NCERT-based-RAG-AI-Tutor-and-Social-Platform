@@ -20,6 +20,14 @@ export default function RAGPage() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [activeCitation, setActiveCitation] = useState<Citation | null>(null);
+  const [userName, setUserName] = useState("Sahil");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("user-name");
+    if (stored) {
+      setUserName(stored.split(" ")[0]);
+    }
+  }, []);
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -135,7 +143,7 @@ export default function RAGPage() {
             <div className="space-y-2">
               <h2 className="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
                 <span className="bg-gradient-to-r from-teal-accent via-[#00ffca] to-saffron bg-clip-text text-transparent">
-                  Hello, Arjun
+                  Hello, {userName}
                 </span>
               </h2>
               <h3 className="text-2xl sm:text-3xl font-bold text-muted-foreground/80 leading-snug">
@@ -228,7 +236,7 @@ export default function RAGPage() {
                   🦉
                 </div>
                 <div className="flex flex-col gap-1">
-                  <span className="text-xs text-muted-foreground leading-none">Vidya is searching chapters...</span>
+                  <span className="text-xs text-muted-foreground leading-none">Agent is searching chapters...</span>
                   <div className="flex gap-1.5 items-center mt-2.5">
                     <div className="size-1.5 bg-teal-accent rounded-full animate-bounce" />
                     <div className="size-1.5 bg-teal-accent rounded-full animate-bounce [animation-delay:0.2s]" />
@@ -250,7 +258,7 @@ export default function RAGPage() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask Vidya anything about Class 10 Science..."
+              placeholder="Ask Agent anything about Class 10 Science..."
               className="flex-grow bg-transparent border-none focus:outline-none focus:ring-0 text-xs text-foreground placeholder:text-muted-foreground/50 pr-12"
             />
             <button
@@ -263,7 +271,7 @@ export default function RAGPage() {
             </button>
           </div>
           <p className="text-[9px] text-center text-muted-foreground/60 font-semibold mt-2.5">
-            Vidya displays references using pgvector embeddings. Verify critical facts.
+            Agent displays references using pgvector embeddings. Verify critical facts.
           </p>
         </form>
       </div>

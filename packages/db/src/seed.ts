@@ -27,7 +27,7 @@ async function main() {
   const [instructor] = await db.insert(schema.users).values({
     tenantId: tenant.id,
     email: "instructor@chatncert.academy",
-    name: "Instructor Vidya",
+    name: "Instructor Agent",
     role: "instructor",
   }).returning();
 

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, MouseEvent } from "react";
+import { useState, useEffect, MouseEvent } from "react";
 import {
   Flame,
   Award,
@@ -25,6 +25,12 @@ interface TiltStyle {
 export default function StudentDashboard() {
   const [studyStreak] = useState(7);
   const [hoverStyles, setHoverStyles] = useState<{ [key: string]: TiltStyle }>({});
+  const [userName, setUserName] = useState("Sahil Khan");
+
+  useEffect(() => {
+    const stored = localStorage.getItem("user-name");
+    if (stored) setUserName(stored);
+  }, []);
   
   // pgvector Search States
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -119,7 +125,7 @@ export default function StudentDashboard() {
       <header className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 pb-2 border-b  border-neutral-500/40">
         <div>
           <h1 className="text-3xl lg:text-4xl font-extrabold tracking-tight text-foreground flex items-center gap-2">
-            Welcome back, Arjun! 👋
+            Welcome back, {userName}! 👋
           </h1>
           <p className="text-muted-foreground text-sm lg:text-base mt-1.5 font-medium">
             Let's crush today's syllabus goals and elevate your rank.

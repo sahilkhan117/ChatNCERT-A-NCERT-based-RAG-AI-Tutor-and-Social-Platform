@@ -288,7 +288,7 @@ export default function QuizzesPage() {
           <div className="py-8 flex flex-col items-center text-center space-y-4 max-w-sm mx-auto">
             <div className="w-12 h-12 border-2 border-teal-accent border-t-transparent rounded-full animate-spin" />
             <div className="space-y-1">
-              <h4 className="font-bold text-sm text-foreground">Vidya is analyzing syllabus...</h4>
+              <h4 className="font-bold text-sm text-foreground">Agent is analyzing syllabus...</h4>
               <p className="text-xs text-teal-accent font-semibold leading-relaxed animate-pulse">
                 {steps[generationStep]}
               </p>

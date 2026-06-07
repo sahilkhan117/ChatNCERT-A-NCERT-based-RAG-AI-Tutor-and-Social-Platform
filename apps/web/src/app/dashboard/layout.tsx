@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { Sidebar } from "../../components/layout/sidebar";
 import { Header } from "../../components/layout/header";
 
@@ -13,6 +14,11 @@ export default function DashboardLayout({
     name: "Sahil Khan",
     role: "student" as const,
   };
+
+  useEffect(() => {
+    localStorage.setItem("user-name", mockUser.name);
+    localStorage.setItem("user-role", mockUser.role);
+  }, []);
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-background">
